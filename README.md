@@ -19,7 +19,7 @@ The AIM Tokens attributed to the founders, advisors of the ICO will be blocked i
 
 Every 6 months during 2 years (4 times), 5% of additional AIM Tokens will be distributed, proportionally, only to the Users whose AIM Tokens bought in the pre-sale will never have been moved from their initial address.
 
-## Test coverage
+<!-- ## Test coverage
 
 ### Prepare environment:
 
@@ -35,3 +35,4 @@ Important! Please run tests separately. Like
 `truffle test --network ganache test/distributeHolderBonus.test.js`
 
 This is because a lot of test cases included business logic tightly connected with time in future. We can increase time in blockchain by `evm_increaseTime`, but cannot decrease. So please restart Ganache before test running (until the run test script is ready).
+-->
