@@ -14,10 +14,19 @@ The AIM Tokens attributed to the founders, advisors of the ICO will be blocked i
 * Team: blocked for 6 months
 * Advisors: progressively released during 1st year, 1/12 per month.
 
+### AIM Pre-Sale Bonus
 
-### AIM 2-Year Holding Bonus
+All pre-sales are attributed with additional bonus AIM Tokens based on amount bought
 
-Every 6 months during 2 years (4 times), 5% of additional AIM Tokens will be distributed, proportionally, only to the Users whose AIM Tokens bought in the pre-sale will never have been moved from their initial address.
+* €500,000 (3,333,333 AIM) - €999,999 (6,666,665 AIM): 10% bonus
+* €1,000,000 (6,666,666 AIM) - €2,499,999 (16,666,665 AIM): 15% bonus
+* €2,500,000 (16,666,666 AIM) - €4,999,999 (33,333,332 AIM): 20% bonus
+* €5,000,000 (33,333,333 AIM) - €7,499,999 (49,999,999 AIM): 25% bonus
+* From €7,500,000 (50,000,000 AIM): 30%
+
+### AIM 6-months Holding Bonus
+
+Only half of all additional bonuses aquired during sale are available straight away. All Users whose AIM Tokens were never moved from their initial address will receive the rest of the bonus after 6 months.
 
 <!-- ## Test coverage
 
