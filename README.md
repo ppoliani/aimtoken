@@ -22,7 +22,7 @@ All pre-sales are attributed with additional bonus AIM Tokens based on amount bo
 * €1,000,000 (6,666,666 AIM) - €2,499,999 (16,666,665 AIM): 15% bonus
 * €2,500,000 (16,666,666 AIM) - €4,999,999 (33,333,332 AIM): 20% bonus
 * €5,000,000 (33,333,333 AIM) - €7,499,999 (49,999,999 AIM): 25% bonus
-* From €7,500,000 (50,000,000 AIM): 30%
+* From €7,500,000 (50,000,000 AIM): 30% bonus
 
 ### AIM 6-months Holding Bonus
 
