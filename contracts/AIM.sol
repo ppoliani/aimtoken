@@ -8,32 +8,33 @@ contract AIM is EIP20 {
     // Standard ERC20 information
     string  constant NAME = "Activity Interchange Mine";
     string  constant SYMBOL = "AIM";
-    uint8   constant DECIMALS = 8;
+    uint8   constant DECIMALS = 10;
     uint256 constant UNIT = 10**uint256(DECIMALS);
 
     // 5% for advisors
-    uint256 constant ADVISORS_AMOUNT =   8750000 * UNIT;
+    uint256 constant ADVISORS_AMOUNT =  100000000 * UNIT;
     // 15% for founders
-    uint256 constant FOUNDERS_AMOUNT =  26250000 * UNIT;
-    // 60% sold in pre-sale
-    uint256 constant HOLDERS_AMOUNT  = 105000000 * UNIT;
-    // 20% reserve
-    uint256 constant RESERVE_AMOUNT  =  35000000 * UNIT;
-    // ADVISORS_AMOUNT + FOUNDERS_AMOUNT + HOLDERS_AMOUNT +RESERVE_AMOUNT
-    uint256 constant INITIAL_AMOUNT  = 175000000 * UNIT;
-    // 20% for holder bonus
-    uint256 constant BONUS_AMOUNT    =  35000000 * UNIT;
+    uint256 constant FOUNDERS_AMOUNT =  300000000 * UNIT;
+    // 20% sold in pre-sale
+    uint256 constant HOLDERS_AMOUNT  =  267000000 * UNIT;
+    // 5% for the team
+    uint256 constant TEAM_AMOUNT     =  100000000 * UNIT;
+    // Total amount of tokens
+    uint256 constant INITIAL_AMOUNT  = 2000000000 * UNIT;
+    // Should we have bonus?
+    uint256 constant BONUS_AMOUNT    =  133000000 * UNIT;
     // amount already allocated to advisors
     uint256 public advisorsAllocatedAmount = 0;
     // amount already allocated to funders
     uint256 public foundersAllocatedAmount = 0;
+    // amount already allocated to team
+    uint256 public teamAllocatedAmount = 0;
     // amount already allocated to holders
     uint256 public holdersAllocatedAmount = 0;
     // list of all initial holders
     address[] initialHolders;
     // not distributed because the defaut value is false
     mapping (uint256 => bool) bonusNotDistributed;
-
 
     function AIM() EIP20( // EIP20 constructor
         INITIAL_AMOUNT + BONUS_AMOUNT,
@@ -50,7 +51,7 @@ contract AIM is EIP20 {
 
     /// @param _address The address of the recipient
     /// @param _amount Amount of the allocation
-    /// @param _type Type of the recipient. 0 for advisor, 1 for founders.
+    /// @param _type Type of the recipient. 0 for advisor, 1 for founders, 2 for team members.
     /// @return Whether the allocation was successful or not
     function allocate(address _address, uint256 _amount, uint8 _type) public onlyOwner returns (bool success) {
         // one allocations by address
@@ -70,9 +71,16 @@ contract AIM is EIP20 {
             foundersAllocatedAmount += _amount;
             // mark address as founder
             founders[_address] = true;
+        } else if (_type == 2) { // team
+            // check allocated amount
+            require(teamAllocatedAmount + _amount <= TEAM_AMOUNT);
+            // increase allocated amount
+            teamAllocatedAmount += _amount;
+            // mark address as founder
+            team[_address] = true;
         } else {
             // check allocated amount
-            require(holdersAllocatedAmount + _amount <= HOLDERS_AMOUNT + RESERVE_AMOUNT);
+            require(holdersAllocatedAmount + _amount <= HOLDERS_AMOUNT);
             // increase allocated amount
             holdersAllocatedAmount += _amount;
         }
@@ -105,13 +113,13 @@ contract AIM is EIP20 {
             }
         }
 
-        // calculate the bonus for one holded LGO
-        uint256 bonusByLgo = (BONUS_AMOUNT / 4) / unspentAmount;
+        // calculate the bonus for one holded AIM
+        uint256 bonusByAim = (BONUS_AMOUNT / 4) / unspentAmount;
 
         // distribute the bonus
         for (uint256 j = 0; j < initialHolders.length; j++) {
             if (eligibleForBonus[initialHolders[j]]) {
-                balances[initialHolders[j]] += allocations[initialHolders[j]] * bonusByLgo;
+                balances[initialHolders[j]] += allocations[initialHolders[j]] * bonusByAim;
             }
         }
 
