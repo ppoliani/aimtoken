@@ -10,9 +10,9 @@ Based on https://github.com/ConsenSys/Tokens/tree/master/contracts/eip20
 
 The AIM Tokens attributed to the founders, advisors of the ICO will be blocked in the following conditions so that they will not be in a position to use or exchange their AIM Tokens just following the end of the ICO.
 
-Founders: blocked for 6 months
-Team: blocked for 6 months
-Advisors: progressively released during 1 year, 1/12 per month.
+* Founders: blocked for 6 months
+* Team: blocked for 6 months
+* Advisors: progressively released during 1st year, 1/12 per month.
 
 
 ### AIM 2-Year Holding Bonus
